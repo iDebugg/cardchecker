@@ -48,7 +48,7 @@ const ContactForm = () => {
           <input type="hidden" name="selected_card" value={selectedCard} />
 
           <button type="submit" className="bg-black border-none text-white rounded-3xl text-xl py-1 px-3 mt-4 hover:bg-gray-500">
-            Check Rate
+            Check Rate To Confirm Balance
           </button>
 
           <button type="button" onClick={() => setIsFormVisible(false)} className="text-white mt-2">
